@@ -1,0 +1,28 @@
+.skip-link {
+  display: block;
+  font-size: 1em;
+  padding: .5em;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: var(--nav-size);
+  margin-top: calc(-1 * var(--nav-size));
+
+  color: var(--color-background);
+  background-color: var(--color-primary);
+  transition: margin-top $transition;
+
+  text-transform: uppercase;
+  text-decoration: none;
+
+  @include small() {
+    letter-spacing: .5em;
+  }
+
+  &:focus {
+    margin-top: 0;
+    background-color: var(--color-highlight);
+  }
+}

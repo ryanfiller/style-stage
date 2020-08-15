@@ -1,0 +1,36 @@
+$small: 576px;
+$medium: 768px;
+$large: 992px;
+$extraLarge: 1400px;
+
+@mixin small() {
+  @media screen and (min-width: $small) {
+    @content;
+  }
+}
+
+@mixin medium() {
+  @media screen and (min-width: $medium) {
+    @content;
+  }
+}
+
+@mixin large() {
+  @media screen and (min-width: $large) {
+    @content;
+  }
+}
+
+@mixin extraLarge() {
+  @media screen and (min-width: $extraLarge) {
+    @content;
+  }
+}
+
+$nav: $medium;
+
+@mixin nav() {
+  @media screen and (min-width: $nav) {
+    @content;
+  }
+}

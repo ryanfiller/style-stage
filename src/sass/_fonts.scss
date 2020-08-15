@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=MuseoModerno&display=swap');
+// 100 - 900
+@mixin font-header($weight: 500){
+  font-family: 'MuseoModerno', sans-serif;
+  font-weight: $weight;
+
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+// 300 - 700
+@mixin font-body($weight:500 ) {
+  font-family: 'Fira Code', monospace;
+  font-weight: $weight;
+}
