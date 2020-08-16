@@ -9,11 +9,10 @@ body {
   display: grid;
   gap: var(--padding);
   padding: var(--padding);
-  padding-top: 0;
   grid-template-columns: 3rem 1fr;
-  grid-template-rows: auto;
+  grid-template-rows: 1.5em auto;
   grid-template-areas:
-    "skip skip"
+    "nav  skip"
     "nav  header"
     ".    main"
     ".    profile"
@@ -22,18 +21,40 @@ body {
 
   a.skip-link {
     grid-area: skip;
+    margin-left: var(--padding);
   }
 
   nav {
     grid-area: nav;
     position: sticky;
+    // TODO fix stick nav link headbutt
     top: -1px;
     z-index: 50;
   }
 
   header {
     grid-area: header;
-    min-height: calc(100vh - calc(2 * var(--padding)));
+
+    .container {
+      display: flex;
+      flex-direction: column;
+
+      a.link-github {
+        order: 1;
+      }
+
+      h1 {
+        order: 2;
+      }
+
+      h2 {
+        order: 3;
+      }
+
+      p {
+        order: 4;
+      }
+    }
   }
 
   main {
@@ -66,7 +87,6 @@ body {
     grid-template-columns: auto minmax(var(--min-width), var(--max-width)) auto;
     grid-template-rows: auto;
     grid-template-areas:
-    "skip   skip    skip"
     "header header  header"
     "nav    nav     nav"
     ".      main    ."
@@ -75,7 +95,20 @@ body {
     ".      footer  .";
 
     header {
-      min-height: calc(100vh - calc(10 * var(--padding)));
+      // min-height: calc(100vh - calc(10 * var(--padding)));
+    }
+
+    a.skip-link {
+      grid-area: none;
+      position: absolute;
+      top: var(--padding);
+      left: var(--padding);
+    }
+
+    header a.link-github {
+      position: absolute;
+      top: var(--padding);
+      right: var(--padding);
     }
   }
 }

@@ -11,7 +11,9 @@
     border-radius: 2em;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
+    color: var(--color-highlight);
     transform: scale(105%);
 
     &:before {

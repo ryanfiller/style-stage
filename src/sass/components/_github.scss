@@ -1,8 +1,52 @@
 a.link-github {
-  svg {
-    width: 1em;
-    height: 1em;
-    margin-right: 0.25em;
-    fill: currentColor;
+  header & {
+    font-size: 1.25rem;
+    color: var(--color-text);
+    text-decoration: none;
+  
+    line-height: 1;
+  
+    svg {
+      width: 1em;
+      height: 1em;
+      margin-right: 0.25em;
+      fill: currentColor;
+    }
+  
+    display: inline-block;
+    @include button;
+    padding: .5em;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &:hover *,
+    &:focus *,
+    &:active * {
+      transform: none;
+    }
+  
+    &:before,
+    &:after {
+      max-width: 2.25em;
+    }
+
+    @include nav() {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      
+      svg {
+        margin-right: .25em;
+        margin-left: .75em;
+      }
+
+      &:before,
+      &:after {
+        position: absolute;
+        left: calc(100%  - 2.5em);
+        right: 0;
+      }
+    }
   }
 }

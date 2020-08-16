@@ -1,32 +1,33 @@
 .skip-link {
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  height: calc(5rem);
-  margin-top: -5rem;
-  margin-bottom: var(--padding);
-  
-  font-size: 1em;
-  color: var(--color-background);
-  background-color: var(--color-highlight);
-  transition: margin-top var(--transition-speed);
-
-  text-transform: uppercase;
+  font-size: 1.25rem;
+  color: var(--color-text);
   text-decoration: none;
+  height: 2.55em;
+  padding: .5em;
+  padding-left: 3em;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  @include button;
 
-  @include depressed;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &:hover *,
+  &:focus *,
+  &:active * {
+    transform: none;
+  }
+
+  &:before,
   &:after {
-    opacity: 1;
-    transform: scale(-1);
-  }
-
-  @include small() {
-    letter-spacing: .5em;
-  }
-
-  &:focus {
-    margin-top: 0;
+    content: '»';
+    font-size: 1.125em;
+    height: 2.125em;
+    width: 2.125em;
+    top: -.125em;
+    right: 2.5em;
+    padding: .5em .75em;
   }
 }
