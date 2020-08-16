@@ -1,0 +1,63 @@
+@mixin raised($dark: false) {
+  position: relative;
+  transform: scale(97.5%);
+  transition: var(--transition-speed);
+
+  &:before,
+  &:after {
+    transition: var(--transition-speed);
+    content: '';
+    display: block;
+    border-radius: 2em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom:0;
+    left: 0;
+    z-index: -1;
+    mix-blend-mode: multiply;
+  }
+  
+  &:before { // raised button
+    opacity: 1;
+    box-shadow: 0 -.25rem .5rem white, 0 .25rem .5rem transparentize(black, .75);
+  
+    @if $dark {
+      box-shadow: 0 -.25rem .5rem transparentize(white, .75), 0 .25rem .5rem black;
+    }
+  }
+
+  &:after { // depressed button
+    opacity: 0;
+    box-shadow: inset 0 -.125rem .25rem white, inset 0 .125rem .25rem transparentize(black, .75);
+  
+    @if $dark {
+      box-shadow: inset 0 -.125rem .25rem transparentize(white, .75), inset 0 .125rem .25rem black;
+    }
+  }
+
+  &:hover {
+    transform: scale(100%);
+
+    &:before {
+      opacity: 1;
+    }
+
+    &:after {
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    // transform: scale(95%);
+    transform: scale(97.5%);
+
+    &:before {
+      opacity: 0 !important;
+    }
+
+    &:after {
+      opacity: 1 !important;
+    }
+  }
+}

@@ -1,7 +1,14 @@
+@mixin animate() {
+  @media not all and (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
 $small: 576px;
 $medium: 768px;
 $large: 992px;
 $extraLarge: 1400px;
+$nav: $medium;
 
 @mixin small() {
   @media screen and (min-width: $small) {
@@ -27,10 +34,9 @@ $extraLarge: 1400px;
   }
 }
 
-$nav: $medium;
-
 @mixin nav() {
   @media screen and (min-width: $nav) {
     @content;
   }
 }
+

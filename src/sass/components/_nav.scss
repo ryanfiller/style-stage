@@ -10,12 +10,6 @@ nav {
         width: auto;
         line-height: 1;
         padding: .5em;
-        @include animate() {
-          transition: var(--transition-speed);
-          &:after {
-            transition: var(--transition-speed);
-          }
-        }
 
         color: var(--color-background);
         text-decoration: none;
@@ -26,16 +20,17 @@ nav {
           letter-spacing: .5em;
 
           @include raised($dark: true);
-          &:after {
+          &:not(:hover):before,
+          &:not(:focus):before {
             opacity: 0;
           }
         }
 
-        &:focus,
-        &:hover {
+        &:hover,
+        &:focus {
           outline: none;
           color: var(--color-highlight);
-          &:after {
+          &:before {
             opacity: 1;
           }
         }

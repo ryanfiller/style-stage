@@ -1,11 +1,10 @@
 @charset "UTF-8";
 @import './_resets.scss';
-@import './_breakpoints.scss';
-@import './_animation.scss';
+@import './_functions.scss';
 @import './_variables.scss';
 @import './_fonts.scss';
-@import './_buttons.scss';
 @import './_layout.scss';
+@import './components/_buttons.scss';
 
 body {
   // @include font-body(900);
@@ -244,7 +243,7 @@ body {
 //     max-width: 30ch;
 //   }
 
-@import './_nav.scss';
+@import '.components/_nav.scss';
 
 // #about section:nth-child(2) {
 //   position: relative;
@@ -567,7 +566,7 @@ body {
 //     margin-bottom: 0;
 //   }
 
-@import './_skip-link.scss';
+@import '.components/_skip-link.scss';
 
 // [class^="link"]:not(.link-codepen) {
 //   min-height: 3em;
