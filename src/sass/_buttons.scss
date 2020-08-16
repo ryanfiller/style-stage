@@ -1,0 +1,39 @@
+@mixin raised($dark: false) {
+  position: relative;
+  transform: scale(95%);
+
+  &:after {
+    content: '';
+    display: block;
+    // background: green;
+    border-radius: 2em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom:0;
+    left: 0;
+    z-index: -1;
+    mix-blend-mode: multiply;
+    box-shadow: 0 -.25rem .5rem white, 0 .25rem .5rem transparentize(black, .75);
+    
+    @if $dark {
+      box-shadow: 0 -.25rem .5rem transparentize(white, .75), 0 .25rem .5rem black;
+    }
+  }
+
+  &:hover {
+    transform: scale(100%);
+  }
+
+  &:active {
+    transform: scale(90%);
+
+    &:after {
+      box-shadow: 0 .125rem .25rem white, 0 -.125rem .25rem transparentize(black, .75);
+    
+      @if $dark {
+        box-shadow: 0 .125rem .25rem transparentize(white, .75), 0 -.125rem .25rem black;
+      }
+    }
+  }
+}

@@ -1,21 +1,44 @@
 nav {
   ul {
-    margin: 0;
-    padding: 0;
     list-style: none;
 
     li {
       a {
-        display: inline-block;
-        width: auto;
-        line-height: 1;
-        color: white;
-        text-decoration: none;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        display: flex;
+        display: inline-flex;
         align-items: center;
         justify-content: center;
+        width: auto;
+        line-height: 1;
+        padding: .5em;
+        @include animate() {
+          transition: var(--transition-speed);
+          &:after {
+            transition: var(--transition-speed);
+          }
+        }
+
+        color: var(--color-background);
+        text-decoration: none;
+
+        @include nav () {
+          padding: 1em .75em;
+          text-transform: uppercase;
+          letter-spacing: .5em;
+
+          @include raised($dark: true);
+          &:after {
+            opacity: 0;
+          }
+        }
+
+        &:focus,
+        &:hover {
+          outline: none;
+          color: var(--color-highlight);
+          &:after {
+            opacity: 1;
+          }
+        }
       }
     }
   }

@@ -1,7 +1,12 @@
-$transition: .3s;
-
 @mixin animate() {
   @media not all and (prefers-reduced-motion: reduce) {
     @content;
   }
 }
+
+* {
+  @include animate {
+    scroll-behavior: smooth;
+  }
+}
+

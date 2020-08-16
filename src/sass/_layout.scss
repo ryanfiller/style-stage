@@ -54,14 +54,14 @@ body {
     position: fixed;
     top: 0;
     z-index: 100;
+    font-size: 1.25rem;
 
     ul {
+      padding: 0;
       writing-mode: vertical-rl;
       display: flex;
       
-      gap: 1rem;
-      margin-top: 1rem;
-      margin-bottom: 1rem;
+      margin: 1.25em 0;
 
       li {
         a {
@@ -97,52 +97,61 @@ body {
           height: var(--nav-size);
           background-color: var(--color-text);
         }
-      }
-      
-      li {
-        position: relative;
-        z-index: 2;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        
-        // <row-start> / <column-start> / <row-end> / <column-end>
-        &:nth-child(1) {
-          grid-area: 1 / 1 / 2 / 2;
-          writing-mode: vertical-rl;
-        }
 
-        &:nth-child(2) {
-          grid-area: 2 / 1 / 3 / 2;
-          writing-mode: vertical-rl;
-        }
+        li {
+          position: relative;
+          z-index: 2;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          
+          // <row-start> / <column-start> / <row-end> / <column-end>
+          &:nth-child(1) {
+            grid-area: 1 / 1 / 2 / 2;
+            writing-mode: vertical-rl;
+          }
+  
+          &:nth-child(2) {
+            grid-area: 2 / 1 / 3 / 2;
+            writing-mode: vertical-rl;
+          }
+  
+          &:nth-child(3) {
+            grid-area: 3 / 2 / 4 / 3;
+            writing-mode: horizontal-tb;
+          }
+  
+          &:nth-child(4) {
+            grid-area: 3 / 3 / 4 / 5;
+            writing-mode: horizontal-tb;
+          }
+  
+          &:nth-child(5) {
+            grid-area: 2 / 4 / 3 / 5;
+            writing-mode: vertical-lr;
+            transform: rotate(180deg);
 
-        &:nth-child(3) {
-          grid-area: 3 / 2 / 4 / 3;
-          writing-mode: horizontal-tb;
-          align-items: stretch;
-        }
+            a:after {
+              // fix button style
+              transform: rotate(180deg);
+            }
+          }
+  
+          &:nth-child(6) {
+            grid-area: 1 / 4 / 2 / 5;
+            writing-mode: vertical-lr;
+            transform: rotate(180deg);
 
-        &:nth-child(4) {
-          grid-area: 3 / 3 / 4 / 5;
-          writing-mode: horizontal-tb;
-          align-items: stretch;
-        }
-
-        &:nth-child(5) {
-          grid-area: 2 / 4 / 3 / 5;
-          writing-mode: vertical-lr;
-          transform: rotate(180deg);
-        }
-
-        &:nth-child(6) {
-          grid-area: 1 / 4 / 2 / 5;
-          writing-mode: vertical-lr;
-          transform: rotate(180deg);
-        }
-
-        a {
-          pointer-events: auto;
+            a:after {
+              // fix button style
+              transform: rotate(180deg);
+            }
+          }
+  
+          a {
+            width: auto;
+            pointer-events: auto;
+          }
         }
       }
     }

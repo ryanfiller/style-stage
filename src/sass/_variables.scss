@@ -17,5 +17,17 @@
   // --font-size-text: 1.15rem;
   // --border-radius: 8px;
 
-  --nav-size: 4rem;
+  --nav-size: 3rem;
+
+  @include small() {
+    --nav-size: 4rem;
+  }
+
+  @include large() {
+    --nav-size: 6rem;
+  }
+
+  @include animate() {
+    --transition-speed: .3s;
+  }
 }
