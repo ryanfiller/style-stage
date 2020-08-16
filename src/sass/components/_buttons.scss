@@ -1,15 +1,10 @@
-@mixin button($dark: false) {
+@mixin button {
   position: relative;
   transform: scale(100%);
   transition: var(--transition-speed);
 
   @include raised;
   @include depressed;
-
-  @if $dark {
-    @include raised($dark: true);
-    @include depressed($dark: true);
-  }
 
   &:before,
   &:after {

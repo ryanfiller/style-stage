@@ -1,37 +1,79 @@
 nav {
   @include font-header(100);
+
+  font-size: 1em;
+  
   ul {
     list-style: none;
+    padding: 0;
+    writing-mode: vertical-rl;
+    display: flex;
+    margin: 0;
 
     li {
       a {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: auto;
+        width: 3rem;
         line-height: 1;
         padding: .5em;
-
-        color: var(--color-background);
+        color: var(--color-text);
         text-decoration: none;
-
-        @include nav() {
-          padding: 1em .75em;
-          text-transform: uppercase;
-          letter-spacing: .25em;
-
-          @include button($dark: true);
-          &:not(:hover):before,
-          &:not(:focus):before {
-            opacity: 0;
-          }
-        }
-
         &:hover,
         &:focus {
           outline: none;
           color: var(--color-highlight);
-          &:before {
+        }
+      }
+    }
+  }
+
+  @include nav() {
+    padding: var(--padding);
+    border-bottom: calc(.5 * var(--padding)) solid var(--color-highlight);
+
+    &:after {
+      content: '';
+      background: var(--color-background);
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      opacity: .95;
+      backdrop-filter: blur(100px);
+    }
+    
+    ul {
+      writing-mode: unset;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--padding);
+      box-shadow: var(--shadow-depressed);
+      border-radius: 5em;
+      
+      li {
+        a {
+          width: auto;
+          flex: 1;
+          padding: .5em var(--padding);
+          text-transform: uppercase;
+
+          @include button;
+          &:before,
+          &:after {
+            background-color: var(--color-background);
+          }
+
+          &:not(:hover):before,
+          &:not(:focus):before {
+            opacity: 0;
+          }
+
+          &:hover:before,
+          &:focus:before {
             opacity: 1;
           }
         }

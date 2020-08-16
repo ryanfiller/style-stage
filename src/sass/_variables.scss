@@ -1,35 +1,28 @@
 :root {
-  --color-primary: #3a00ff;
-  --color-highlight: #c6a9cf;
-  --color-background: #f1f0f0;
-  --color-text: #1c232d;
-  // --color-light: #fff;
-  // --color-anchor: #3a00ff;
-  // --font-weight-strong: 500;
-  // --font-size-h1: 6rem;
-  // --font-size-h2: 3rem;
-  // --font-size-h3: 2rem;
-  // --font-size-h4: 1.35rem;
-  // --font-size-text: 1.15rem;
+  --color-text: #32374c;
+  --color-background: #f1f2fa;
+  --color-highlight: #6c85ed;
+  
   --corners: 2rem;
+  --min-width: 40ch;
   --max-width: 80ch;
-
-  --shadow-raised-light: 0 -.25rem .5rem white, 0 .25rem .5rem rgba(0, 0, 0, .25);
-  --shadow-raised-dark: 0 -.25rem .5rem rgba(255, 255, 255, .25), 0 .25rem .5rem black;
-  --shadow-depressed-light: inset 0 -.125rem .25rem white, inset 0 .125rem .25rem rgba(0, 0, 0, .25);
-  --shadow-depressed-dark: inset 0 -.125rem .25rem rgba(255, 255, 255, .25), inset 0 .125rem .25rem black;
-
   --padding: 1rem;
-  --nav-size: 3rem;
 
-  @include small() {
-    --padding: 2rem;
-    --nav-size: 4rem;
+  --shadow: rgba(0, 0, 0, .33);
+  --highlight: rgba(255, 255, 255, .33);
+
+  @media (prefers-color-scheme: dark) {
+    --color-text: #f1f2fa;
+    --color-background: #32374c;
+    // --color-highlight: #6c96fa;
+
+    --shadow: rgba(0, 0, 0, 1);
+    --highlight: rgba(255, 255, 255, .25);
   }
 
-  @include large() {
-    --nav-size: 6rem;
-  }
+  --shadow-raised: 0 -.25rem .5rem var(--highlight), 0 .25rem .5rem var(--shadow);
+  --shadow-depressed: inset 0 -.125rem .25rem var(--highlight), inset 0 .125rem .25rem var(--shadow);
+
 
   @include animate() {
     --transition-speed: .3s;

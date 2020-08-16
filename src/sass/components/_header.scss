@@ -1,78 +1,77 @@
-// header {
-//   min-height: calc(100vh - (2 * var(--nav-size)));
-//   display: flex;
-//   background: var(--color-highlight);
+header {
+  // display: flex;
+  // background: var(--color-highlight);
   
-//   .container {
-//     background: var(--color-background);
-//     @include raised;
-//     padding: var(--padding);
+  // .container {
+  //   background: var(--color-background);
+  //   @include raised;
+  //   padding: var(--padding);
 
-//     border-radius: calc(2 * var(--corners));
-//     &:before {
-//       border-radius: calc(2 * var(--corners));
-//     }
-//   }
+  //   border-radius: calc(2 * var(--corners));
+  //   &:before {
+  //     border-radius: calc(2 * var(--corners));
+  //   }
+  // }
 
-//   h1 {
-//     @include font-size(calc(10vw + 2.5em), 7.5em, 7.5em);
-//     line-height: 1;
-//     color: var(--text-background);
-//     // color: var(--color-background);
-//     // text-shadow: var(--shadow-raised-light), var(--shadow-raised-light);
-//   }
+  h1 {
+    @include font-size(calc(10vw + 2.5em), 7.5em, 7.5em);
+    line-height: 1;
+    color: var(--text-background);
+    color: var(--color-background);
+    text-shadow: var(--shadow-raised);
+  }
   
-//   h2 {
-//     padding: var(--padding);
-//     box-shadow: var(--shadow-raised-light);
-//     border-radius: var(--corners);
-//   }
+  // h2 {
+  //   padding: var(--padding);
+  //   box-shadow: var(--shadow-raised-light);
+  //   border-radius: var(--corners);
+  // }
 
-//   p {
-//     @include raised;
-//   }
+  // p {
+  //   @include raised;
+  // }
   
-//   > a {
-//     @include button;
-//   }
+  // > a {
+  //   @include button;
+  // }
 
-//   @include medium {
-//     .container {
-//       display: grid;
-//       gap: var(--padding);
-//       grid-template-rows: auto auto auto;
-//       grid-template-columns: 1fr 1fr;
-//       grid-template-areas:
-//         "big small1"
-//         "big small2"
-//         "big small3";
+  // @include medium {
+  //   .container {
+  //     display: grid;
+  //     gap: var(--padding);
+  //     grid-template-rows: auto auto auto;
+  //     grid-template-columns: 1fr 1fr;
+  //     grid-template-areas:
+  //       "big small1"
+  //       "big small2"
+  //       "big small3";
 
-//       // &:after {
-//       //   content: '';
-//       //   display: block;
-//       //   padding: var(--padding);
-//       //   box-shadow: var(--shadow-depressed-light);
-//       //   border-radius: var(--corners);
-//       //   grid-area: small;
-//       //   grid-area: 1 / 2 / 4 / 3;
-//       // }
-//     }
+  //     // &:after {
+  //     //   content: '';
+  //     //   display: block;
+  //     //   padding: var(--padding);
+  //     //   box-shadow: var(--shadow-depressed-light);
+  //     //   border-radius: var(--corners);
+  //     //   grid-area: small;
+  //     //   grid-area: 1 / 2 / 4 / 3;
+  //     // }
+  //   }
 
-//     h1 {
-//       text-align: right;
-//       grid-area: big;
-//     }
+  //   h1 {
+  //     text-align: right;
+  //     grid-area: big;
+  //   }
 
-//     h2 {
-//       grid-area: small1;
-//     }
+  //   h2 {
+  //     grid-area: small1;
+  //   }
   
-//     p {
-//       grid-area: small2;
-//     }
+  //   p {
+  //     grid-area: small2;
+  //   }
   
-//     a {
-//       grid-area: small3;
-//     }
-//   }
-// }
+  //   a {
+  //     grid-area: small3;
+  //   }
+  // }
+}

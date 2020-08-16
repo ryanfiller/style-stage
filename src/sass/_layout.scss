@@ -5,30 +5,35 @@
 }
 
 body {
-  background-color: var(--color-primary);
+  background-color: var(--color-background);
   display: grid;
-  grid-template-columns: var(--nav-size) 1fr;
-  grid-template-rows: auto;
+  gap: var(--padding);
   padding: var(--padding);
-  padding-left: 0;
+  padding-top: 0;
+  grid-template-columns: 3rem 1fr;
+  grid-template-rows: auto;
   grid-template-areas:
-    "nav skip"
-    "nav header"
-    "nav main"
-    "nav profile"
-    "nav styles"
-    "nav footer";
-
-  nav {
-    grid-area: nav;
-  }
+    "skip skip"
+    "nav  header"
+    ".    main"
+    ".    profile"
+    ".    styles"
+    ".    footer";
 
   a.skip-link {
     grid-area: skip;
   }
 
+  nav {
+    grid-area: nav;
+    position: sticky;
+    top: -1px;
+    z-index: 50;
+  }
+
   header {
     grid-area: header;
+    min-height: calc(100vh - calc(2 * var(--padding)));
   }
 
   main {
@@ -48,112 +53,29 @@ body {
   }
 
   > *:not(nav) {
-    background-color: transparentize(white, .25);
     color: var(--color-text);
     padding: var(--padding);
     position: relative;
     z-index: 2;
   }
-
-  // @include nav() {
-  //   header { // first child that is not .skip-link
-  //     // margin-top: var(--nav-size);
-  //   }
-  
-  //   > *:not(nav) { // other children
-  //     margin-left: var(--nav-size);
-  //     margin-right: var(--nav-size);
-  //   }
-
-  //   &:last-child {
-  //     margin-bottom: var(--nav-size);
-  //   }
-  // }
-
-  nav {
-    background: transparent;
-    position: fixed;
-    top: 0;
-    z-index: 100;
-    font-size: 1.25rem;
-
-    ul {
-      padding: 0;
-      writing-mode: vertical-rl;
-      display: flex;
-      margin: 1.25em 0;
-
-      li {
-        a {
-          width: var(--nav-size);
-        }
-      }
-    }
-  }
 }
 
 @include nav() {
-  body,
-  body nav ul {
-    padding: var(--padding) 0 ;
-    grid-template-columns: auto calc(2rem + var(--nav-size)) minmax(0, var(--max-width)) calc(2rem + var(--nav-size)) auto;
-    grid-template-areas:
-      ". nav-left skip    nav-right ."
-      ". nav-left header  nav-right ."
-      ". nav-left main    nav-right ."
-      ". nav-left profile nav-right ."
-      ". nav-left styles  nav-right ."
-      ". nav-left footer  nav-right .";
-  }
-
   body {
-    nav ul {
-      display: grid;
-      grid-template-rows: 1fr 1fr 1fr;
-    }
+    padding: 0;
+    grid-template-columns: auto minmax(var(--min-width), var(--max-width)) auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "skip   skip    skip"
+    "header header  header"
+    "nav    nav     nav"
+    ".      main    ."
+    ".      profile ."
+    ".      styles  ."
+    ".      footer  .";
 
-    nav {
-      right: 0;
-      left: 0;
-      bottom: 0;
-      height: 100vh;
-      pointer-events: none;
-    
-      ul {
-        writing-mode: unset;
-        margin: 0;
-        height: 100%;
-        width: 100%;
-    
-        li {
-          position: relative;
-          z-index: 2;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          writing-mode: vertical-rl;
-    
-          &:nth-child(odd) {
-            grid-column-start: 2;
-          }
-    
-          &:nth-child(even) {
-            grid-column-start: 4;
-            transform: rotate(180deg);
-    
-            a:before,
-            a:after {
-              // fix button style
-              transform: rotate(180deg);
-            }
-          }
-          
-          a {
-            width: auto;
-            pointer-events: auto;
-          }
-        }
-      }
+    header {
+      min-height: calc(100vh - calc(10 * var(--padding)));
     }
   }
 }

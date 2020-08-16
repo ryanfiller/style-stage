@@ -70,7 +70,7 @@ $nav: $medium;
   max-width: 65rem;
 }
 
-@mixin raised($dark: false) {
+@mixin raised() {
   position: relative;
 
   &:before {
@@ -88,15 +88,11 @@ $nav: $medium;
   
   &:before { // raised button
     opacity: 1;
-    box-shadow: var(--shadow-raised-light);
-  
-    @if $dark {
-      box-shadow: var(--shadow-raised-dark);
-    }
+    box-shadow: var(--shadow-raised);
   }
 }
 
-@mixin depressed($dark: false) {
+@mixin depressed() {
   position: relative;
 
   &:after {
@@ -114,10 +110,6 @@ $nav: $medium;
     
   &:after { // depressed button
     opacity: 0;
-    box-shadow: var(--shadow-depressed-light);
-
-    @if $dark {
-      box-shadow: var(--shadow-depressed-dark);
-    }
+    box-shadow: var(--shadow-depressed);
   }
 }
