@@ -10,7 +10,7 @@ body {
   grid-template-columns: var(--nav-size) 1fr;
   grid-template-rows: auto;
   padding: var(--padding);
-  gap: var(--padding);
+  padding-left: 0;
   grid-template-areas:
     "nav skip"
     "nav header"
@@ -20,7 +20,7 @@ body {
     "nav footer";
 
   nav {
-    grid-area: skip;
+    grid-area: nav;
   }
 
   a.skip-link {
@@ -47,17 +47,13 @@ body {
     grid-area: footer;
   }
 
-  // > * {
-  //   background-color: var(--color-background);
-  //   color: var(--color-text);
-  //   position: relative;
-  //   z-index: 2;
-  // }
-
-  // > *:not(nav) {
-  //   margin-left: var(--nav-size);
-  //   padding: var(--padding);
-  // }
+  > *:not(nav) {
+    background-color: transparentize(white, .25);
+    color: var(--color-text);
+    padding: var(--padding);
+    position: relative;
+    z-index: 2;
+  }
 
   // @include nav() {
   //   header { // first child that is not .skip-link
@@ -99,9 +95,8 @@ body {
 @include nav() {
   body,
   body nav ul {
-    padding: var(--padding);
-    gap: var(--padding);
-    grid-template-columns: auto var(--nav-size) minmax(0, var(--max-width)) var(--nav-size) auto;
+    padding: var(--padding) 0 ;
+    grid-template-columns: auto calc(2rem + var(--nav-size)) minmax(0, var(--max-width)) calc(2rem + var(--nav-size)) auto;
     grid-template-areas:
       ". nav-left skip    nav-right ."
       ". nav-left header  nav-right ."

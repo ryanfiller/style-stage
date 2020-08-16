@@ -31,14 +31,8 @@ nav {
         &:focus {
           outline: none;
           color: var(--color-highlight);
-        }
-
-        @include large {
-          &:hover,
-          &:focus {
-            &:before {
-              opacity: 1;
-            }
+          &:before {
+            opacity: 1;
           }
         }
       }
