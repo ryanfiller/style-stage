@@ -7,13 +7,8 @@
 @import './components/_buttons.scss';
 
 body {
-  // @include font-body(900);
-  @include font-header(100);
+  @include font-body();
 }
-
-// html {
-//   overflow-x: hidden;
-// }
 
 // /* Set core body defaults */
 // body {
@@ -23,30 +18,6 @@ body {
 //   text-rendering: optimizeSpeed;
 //   overflow-x: hidden;
 // }
-
-// /* Make images easier to work with */
-// img {
-//   display: block;
-//   max-width: 100%;
-// }
-
-// /* Inherit fonts for inputs and buttons */
-// input,
-// button,
-// textarea,
-// select {
-//   font: inherit;
-// }
-
-// /* Remove all animations and transitions for people that prefer not to see them */
-// @media (prefers-reduced-motion: reduce) {
-//   * {
-//     animation-duration: 0.01ms !important;
-//     animation-iteration-count: 1 !important;
-//     transition-duration: 0.01ms !important;
-//     scroll-behavior: auto !important;
-//   }
-//   }
 
 // h1,
 // h2,
@@ -170,12 +141,6 @@ body {
 //   font-weight: var(--font-weight-strong);
 // }
 
-// body {
-//   background-color: var(--color-background);
-//   color: var(--color-text);
-//   font-family: var(--font-family);
-// }
-
 // main {
 //   padding-top: 5vh;
 //   padding-bottom: 5vh;
@@ -218,32 +183,9 @@ body {
 //   list-style: none;
 // }
 
-// header {
-//   --logomark-height: 3em;
-//   --logomark-padding: 0 1em;
-//   display: grid;
-//   min-height: 40vh;
-//   place-items: center;
-//   padding: 10vh 2rem;
-//   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%233a00ff' fill-opacity='0.4'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23d42257' fill-opacity='0.4'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-//   background-repeat: repeat-x;
-//   background-position: 0 -38px, 17px -40px;
-//   color: var(--color-primary);
-//   text-align: center;
-// }
-//   header h1 {
-//     display: inline-grid;
-//     min-height: var(--logomark-height);
-//     padding: var(--logomark-padding);
-//     border: 0.16em solid var(--color-primary);
-//     box-shadow: 0.12em 0.12em var(--color-secondary);
-//     place-content: center;
-//   }
-//   header h2 {
-//     max-width: 30ch;
-//   }
+@import './components/_header.scss';
 
-@import '.components/_nav.scss';
+@import './components/_nav.scss';
 
 // #about section:nth-child(2) {
 //   position: relative;
@@ -566,7 +508,7 @@ body {
 //     margin-bottom: 0;
 //   }
 
-@import '.components/_skip-link.scss';
+@import './components/_skip-link.scss';
 
 // [class^="link"]:not(.link-codepen) {
 //   min-height: 3em;
@@ -634,10 +576,4 @@ body {
 //     }
 //     }
 
-// .link-github svg {
-//   width: 1em;
-//   height: 1em;
-//   margin-right: 0.25em;
-//   fill: currentColor;
-// }
-// // 
+@import './components/_github.scss';

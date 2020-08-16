@@ -7,7 +7,7 @@
 $small: 576px;
 $medium: 768px;
 $large: 992px;
-$extraLarge: 1400px;
+$extra: 1400px;
 $nav: $medium;
 
 @mixin small() {
@@ -28,8 +28,8 @@ $nav: $medium;
   }
 }
 
-@mixin extraLarge() {
-  @media screen and (min-width: $extraLarge) {
+@mixin extra() {
+  @media screen and (min-width: $extra) {
     @content;
   }
 }
@@ -40,3 +40,84 @@ $nav: $medium;
   }
 }
 
+@mixin font-size($small: 1em, $medium: 1.25em, $large: 1.5em, $extra: $large) {
+  font-size: $small;
+  line-height: 1.25em;
+
+  @include small() {
+    font-size: $medium;
+  }
+  
+  @include medium() {
+    font-size: $large;
+  }
+  
+  @include large() {
+    font-size: $extra;
+  }
+}
+
+@mixin container() {
+  padding-left: var(--padding);
+  padding-right: var(--padding);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $extra;
+}
+
+@mixin readable() {
+  @include container();
+  max-width: 65rem;
+}
+
+@mixin raised($dark: false) {
+  position: relative;
+
+  &:before {
+    transition: var(--transition-speed);
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom:0;
+    left: 0;
+    z-index: -1;
+    mix-blend-mode: multiply;
+  }
+  
+  &:before { // raised button
+    opacity: 1;
+    box-shadow: var(--shadow-raised-light);
+  
+    @if $dark {
+      box-shadow: var(--shadow-raised-dark);
+    }
+  }
+}
+
+@mixin depressed($dark: false) {
+  position: relative;
+
+  &:after {
+    transition: var(--transition-speed);
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom:0;
+    left: 0;
+    z-index: -1;
+    mix-blend-mode: multiply;
+  }
+    
+  &:after { // depressed button
+    opacity: 0;
+    box-shadow: var(--shadow-depressed-light);
+
+    @if $dark {
+      box-shadow: var(--shadow-depressed-dark);
+    }
+  }
+}

@@ -1,25 +1,28 @@
 :root {
   --color-primary: #3a00ff;
   --color-highlight: #c6a9cf;
-  // --color-primary-alt: #6f6ffd;
-  // --color-secondary: #d42257;
   --color-background: #f1f0f0;
   --color-text: #1c232d;
-  // --color-text: #868686;
   // --color-light: #fff;
   // --color-anchor: #3a00ff;
-  // --font-family: "Baloo 2", sans-serif;
   // --font-weight-strong: 500;
   // --font-size-h1: 6rem;
   // --font-size-h2: 3rem;
   // --font-size-h3: 2rem;
   // --font-size-h4: 1.35rem;
   // --font-size-text: 1.15rem;
-  // --border-radius: 8px;
+  --corners: 2rem;
 
+  --shadow-raised-light: 0 -.25rem .5rem white, 0 .25rem .5rem rgba(0, 0, 0, .25);
+  --shadow-raised-dark: 0 -.25rem .5rem rgba(255, 255, 255, .25), 0 .25rem .5rem black;
+  --shadow-depressed-light: inset 0 -.125rem .25rem white, inset 0 .125rem .25rem rgba(0, 0, 0, .25);
+  --shadow-depressed-dark: inset 0 -.125rem .25rem rgba(255, 255, 255, .25), inset 0 .125rem .25rem black;
+
+  --padding: 1rem;
   --nav-size: 3rem;
 
   @include small() {
+    --padding: 3rem;
     --nav-size: 4rem;
   }
 
