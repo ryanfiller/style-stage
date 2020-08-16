@@ -18,7 +18,7 @@ nav {
         @include nav() {
           padding: 1em .75em;
           text-transform: uppercase;
-          letter-spacing: .5em;
+          letter-spacing: .25em;
 
           @include button($dark: true);
           &:not(:hover):before,

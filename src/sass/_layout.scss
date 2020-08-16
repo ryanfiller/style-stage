@@ -5,40 +5,74 @@
 }
 
 body {
-  background-color: var(--color-text);
-  color: var(--color-background);
+  background-color: var(--color-primary);
+  display: grid;
+  grid-template-columns: var(--nav-size) 1fr;
+  grid-template-rows: auto;
+  padding: var(--padding);
+  gap: var(--padding);
+  grid-template-areas:
+    "nav skip"
+    "nav header"
+    "nav main"
+    "nav profile"
+    "nav styles"
+    "nav footer";
 
-  > * {
-    background-color: var(--color-background);
-    color: var(--color-text);
-    position: relative;
-    z-index: 2;
+  nav {
+    grid-area: skip;
   }
 
-  > *:not(nav) {
-    margin-left: var(--nav-size);
-    padding: var(--padding);
+  a.skip-link {
+    grid-area: skip;
   }
 
-  @include nav() {
-    header { // first child that is not .skip-link
-      margin-top: var(--nav-size);
-    }
+  header {
+    grid-area: header;
+  }
+
+  main {
+    grid-area: main;
+  }
+
+  aside.profile {
+    grid-area: profile;
+  }
+
+  aside#styles {
+    grid-area: styles;
+  }
+
+  footer {
+    grid-area: footer;
+  }
+
+  // > * {
+  //   background-color: var(--color-background);
+  //   color: var(--color-text);
+  //   position: relative;
+  //   z-index: 2;
+  // }
+
+  // > *:not(nav) {
+  //   margin-left: var(--nav-size);
+  //   padding: var(--padding);
+  // }
+
+  // @include nav() {
+  //   header { // first child that is not .skip-link
+  //     // margin-top: var(--nav-size);
+  //   }
   
-    > *:not(nav) { // other children
-      margin-left: var(--nav-size);
-      margin-right: var(--nav-size);
+  //   > *:not(nav) { // other children
+  //     margin-left: var(--nav-size);
+  //     margin-right: var(--nav-size);
+  //   }
 
-      &.skip-link { 
-        margin-left:0;
-        margin-right:0;
-      }
-    }
-
-    &:last-child {
-      margin-bottom: var(--nav-size);
-    }
-  }
+  //   &:last-child {
+  //     margin-bottom: var(--nav-size);
+  //   }
+  // }
 
   nav {
     background: transparent;
@@ -51,7 +85,6 @@ body {
       padding: 0;
       writing-mode: vertical-rl;
       display: flex;
-      
       margin: 1.25em 0;
 
       li {
@@ -60,87 +93,66 @@ body {
         }
       }
     }
+  }
+}
 
-    @include nav() {
-      top: var(--nav-size);
+@include nav() {
+  body,
+  body nav ul {
+    padding: var(--padding);
+    gap: var(--padding);
+    grid-template-columns: auto var(--nav-size) minmax(0, var(--max-width)) var(--nav-size) auto;
+    grid-template-areas:
+      ". nav-left skip    nav-right ."
+      ". nav-left header  nav-right ."
+      ". nav-left main    nav-right ."
+      ". nav-left profile nav-right ."
+      ". nav-left styles  nav-right ."
+      ". nav-left footer  nav-right .";
+  }
+
+  body {
+    nav ul {
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr;
+    }
+
+    nav {
       right: 0;
       left: 0;
       bottom: 0;
-      height: calc(100vh - var(--nav-size));
+      height: 100vh;
       pointer-events: none;
-
+    
       ul {
         writing-mode: unset;
         margin: 0;
         height: 100%;
         width: 100%;
-        display: grid;
-        grid-template-rows: 1fr 1fr var(--nav-size);
-        grid-template-columns: var(--nav-size) 1fr 1fr var(--nav-size);
-
-        &:after { // to show links on bottom
-          content: '';
-          position: absolute;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          z-index: 1;
-          height: var(--nav-size);
-          background-color: var(--color-text);
-        }
-
+    
         li {
           position: relative;
           z-index: 2;
           display: flex;
           align-items: center;
           justify-content: center;
+          writing-mode: vertical-rl;
+    
+          &:nth-child(odd) {
+            grid-column-start: 2;
+          }
+    
+          &:nth-child(even) {
+            grid-column-start: 4;
+            transform: rotate(180deg);
+    
+            a:before,
+            a:after {
+              // fix button style
+              transform: rotate(180deg);
+            }
+          }
           
-          // <row-start> / <column-start> / <row-end> / <column-end>
-          &:nth-child(1) {
-            grid-area: 1 / 1 / 2 / 2;
-            writing-mode: vertical-rl;
-          }
-  
-          &:nth-child(2) {
-            grid-area: 2 / 1 / 3 / 2;
-            writing-mode: vertical-rl;
-          }
-  
-          &:nth-child(3) {
-            grid-area: 3 / 2 / 4 / 3;
-            writing-mode: horizontal-tb;
-          }
-  
-          &:nth-child(4) {
-            grid-area: 3 / 3 / 4 / 5;
-            writing-mode: horizontal-tb;
-          }
-  
-          &:nth-child(5) {
-            grid-area: 2 / 4 / 3 / 5;
-            writing-mode: vertical-lr;
-            transform: rotate(180deg);
-
-            a:before,
-            a:after {
-              // fix button style
-              transform: rotate(180deg);
-            }
-          }
-  
-          &:nth-child(6) {
-            grid-area: 1 / 4 / 2 / 5;
-            writing-mode: vertical-lr;
-            transform: rotate(180deg);
-
-            a:before,
-            a:after {
-              // fix button style
-              transform: rotate(180deg);
-            }
-          }
-  
           a {
             width: auto;
             pointer-events: auto;
