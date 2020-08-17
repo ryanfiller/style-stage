@@ -70,6 +70,13 @@ $nav: $medium;
   max-width: 65rem;
 }
 
+@mixin gradient-text {
+  color: var(--color-highlight1);
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 @mixin raised() {
   position: relative;
 

@@ -39,13 +39,6 @@ body {
 //   text-align: center;
 // }
 
-// #main h2 {
-//   background-color: var(--color-secondary);
-//   align-self: center;
-//   color: var(--color-background);
-//   padding: 0.25em 0.5em;
-// }
-
 // h3 {
 //   font-size: var(--font-size-h3);
 // }
@@ -141,16 +134,7 @@ body {
 //   font-weight: var(--font-weight-strong);
 // }
 
-// main {
-//   padding-top: 5vh;
-//   padding-bottom: 5vh;
-// }
-//   main:focus {
-//     outline: none;
-//   }
-//   main h3 {
-//     color: var(--color-primary);
-//   }
+@import './components/_main';
 
 // article section {
 //   display: flex;

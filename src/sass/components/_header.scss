@@ -1,24 +1,13 @@
 header {
   // display: flex;
-  // background: var(--color-highlight);
-  
-  // .container {
-  //   background: var(--color-background);
-  //   @include raised;
-  //   padding: var(--padding);
-
-  //   border-radius: calc(2 * var(--corners));
-  //   &:before {
-  //     border-radius: calc(2 * var(--corners));
-  //   }
-  // }
+  // background: var(--color-highlight1);
 
   h1 {
+    @include font-header;
     @include font-size(calc(10vw + 2.5em), 7.5em, 7.5em);
+    font-weight: 300;
     line-height: 1;
-    color: var(--text-background);
-    color: var(--color-background);
-    text-shadow: var(--shadow-raised);
+    @include gradient-text;
   }
   
   // h2 {
@@ -74,4 +63,10 @@ header {
   //     grid-area: small3;
   //   }
   // }
+
+  @include nav() {
+    h1 {
+      padding: 7.5rem 0;
+    }
+  }
 }

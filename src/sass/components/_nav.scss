@@ -21,9 +21,10 @@ nav {
         color: var(--color-text);
         text-decoration: none;
         &:hover,
+        &:active,
         &:focus {
           outline: none;
-          color: var(--color-highlight);
+          color: var(--color-highlight1);
         }
       }
     }
@@ -31,7 +32,18 @@ nav {
 
   @include nav() {
     padding: var(--padding);
-    border-bottom: calc(.5 * var(--padding)) solid var(--color-highlight);
+    border-bottom: calc(.25 * var(--padding)) solid var(--color-highlight);
+
+    // overlap with border bottom
+    &:before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: calc(.25 * var(--padding));
+      background: var(--gradient);
+      position: absolute;
+      top: 100%;
+    }
 
     &:after {
       content: '';
@@ -62,19 +74,19 @@ nav {
           text-transform: uppercase;
 
           @include button;
-          &:before,
-          &:after {
-            background-color: var(--color-background);
-          }
 
           &:not(:hover):before,
-          &:not(:focus):before {
+          &:not(:focus):before,
+          &:not(:active):before {
             opacity: 0;
           }
 
-          &:hover:before,
-          &:focus:before {
-            opacity: 1;
+          &:hover,
+          &:focus,
+          &:active {
+            &:before {
+              opacity: 1;
+            }
           }
         }
       }

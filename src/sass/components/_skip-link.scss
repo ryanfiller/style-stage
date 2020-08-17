@@ -9,6 +9,7 @@
   display: inline-flex;
   align-items: center;
   @include button;
+  z-index: 100;
 
 
   &:hover,
@@ -22,6 +23,9 @@
 
   &:before,
   &:after {
+    // undo gradient
+    -webkit-text-fill-color: initial;
+    color: currentColor;
     content: '»';
     font-size: 1.125em;
     height: 2.125em;
@@ -29,5 +33,6 @@
     top: -.125em;
     right: 2.5em;
     padding: .5em .75em;
+    z-index: -1;
   }
 }

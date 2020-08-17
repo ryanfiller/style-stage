@@ -1,20 +1,22 @@
 :root {
   --color-text: #32374c;
   --color-background: #f1f2fa;
-  --color-highlight: #6c85ed;
-  
+  --color-highlight1: #a572e1;
+  --color-highlight2: #e0619e;
+  --color-highlight: var(--color-highlight1);
+  --gradient: linear-gradient(45deg, var(--color-highlight1), var(--color-highlight2));
+
   --corners: 2rem;
-  --min-width: 40ch;
+  --min-width: 50ch;
   --max-width: 80ch;
   --padding: 1rem;
 
   --shadow: rgba(0, 0, 0, .33);
-  --highlight: rgba(255, 255, 255, .33);
+  --highlight: rgba(255, 255, 255, 1);
 
   @media (prefers-color-scheme: dark) {
     --color-text: #f1f2fa;
     --color-background: #32374c;
-    // --color-highlight: #6c96fa;
 
     --shadow: rgba(0, 0, 0, 1);
     --highlight: rgba(255, 255, 255, .25);
